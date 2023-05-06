@@ -22,9 +22,6 @@
             
             <li>Track your orders</li>
             <li>Manage your account</li>
-            
-            <br>
-            <br>
 
             
         </div>
@@ -32,16 +29,17 @@
         <div class="container bg-white shadow-md p-5 form-layout">
             
             <h4>Track your order</h4>
+            <hr>
             <a class="btn btn-primary btn-md text-white" type="button" href="{% url 'user-logout' %}">My order</a>
         </div>
         <br>
         <div class="container bg-white shadow-md p-5 form-layout">
             
             <h4>Manage your account</h4>
-            <a class="btn btn-primary btn-md text-white" type="button" href="{% url 'profile-management' %}">Profile management</a>
-            <br><br>
-            <a class="btn btn-danger btn-md text-white" type="button" href="{% url 'user-logout' %}">Logout</a>
-        
+            <hr>
+            <p>Update or delete your account</p>
+            <a class="btn btn-primary btn-md text-white" type="button" href="{% url 'profile-management' %}">Profile management</a>           
+        </div>
     </body>
     <br><br>
 

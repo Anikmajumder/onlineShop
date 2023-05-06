@@ -20,7 +20,7 @@ class CreateUserForm(UserCreationForm):
     
     def clean_email(self):
         email = self.cleaned_data.get("email")
-        if User.objects.filter(email=email).exists():
+        if User.objects.filter(email=email).exclude(pk=self.instance.pk).exists():
             raise forms.ValidationError('This email is invalid')
         
         if len(email) >= 100:
@@ -43,3 +43,19 @@ class UpdateUserForm(forms.ModelForm):
 
         fields = ['username', 'email']
         exclude = ['password1', 'password1']
+    
+    def __init__(self, *args, **kwargs):
+        super(UpdateUserForm, self).__init__(*args, **kwargs)
+        
+        #email field requried
+        self.fields['email'].required = True
+    
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if User.objects.filter(email=email).exclude(pk=self.instance.pk).exists():
+            raise forms.ValidationError('This email is invalid')
+        
+        if len(email) >= 100:
+            raise forms.ValidationError("This email is too long")
+
+        return email

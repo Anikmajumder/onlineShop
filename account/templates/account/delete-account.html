@@ -17,11 +17,13 @@
 
         <h5> Account deltetation </h5>
         <hr>
-        <br>
         <form method="POST" autocomplete="off">
             {% csrf_token %}
             <p> Are you sure that you want to delete your account</p>
-            <button type="submit" class="btn btn-danger btn-lg w-100 btn-block p-2">&nbsp; Delete your account</button>
+            <button type="submit" class="btn btn-danger btn-md text-white">&nbsp; Delete your account</button>
+            <br>
+            <br>
+            <a class="btn btn-primary btn-md text-white" type="button" href="{% url 'profile-management' %}"><i class="fa fa-arrow-left"></i>&nbsp;Go back</a>           
         </form>
 
 
